@@ -1,4 +1,6 @@
 export default interface ITask {
     id: number,
-    text: string
+    title: string,
+    description: string,
+    date: string
 }

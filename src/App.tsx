@@ -13,11 +13,7 @@ const App = () => {
             <>
                 <h1 className="mt-3 text-center">To Do List</h1>
                 <AddTaskForm />
-                <div className="row">
-                    <div className="col-6">
-                        <TasksList {...tasksInState} />
-                    </div>
-                </div>
+                <TasksList {...tasksInState} />
             </>
         </div>
     )
