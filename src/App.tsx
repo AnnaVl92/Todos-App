@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AddTaskForm from './containers/AddTaskForm/AddTaskForm';
+import TasksList from './components/TasksList/TasksList';
+import { useSelector } from 'react-redux';
+import IState from './redux/types/IState'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const tasksInState: IState = {
+        tasks: useSelector((state: IState )=> state.tasks),
+    };
+    return (
+        <div className="container">
+            <>
+                <h1 className="mt-3 text-center">To Do List</h1>
+                <AddTaskForm />
+                <div className="row">
+                    <div className="col-6">
+                        <TasksList {...tasksInState} />
+                    </div>
+                </div>
+            </>
+        </div>
+    )
 }
 
 export default App;
