@@ -1,15 +1,14 @@
-import { ADD_TASK, AddTaskActionType } from './actionTypes/actionTypes'
-import IFormData from "../types/IFormData"
+import { ADD_TASK } from './actionTypes'
+import IFormData from "../../types/IFormData"
+import { AddTaskActionType } from "../../types/IActionTypes"
 import { format } from 'date-fns'
-
-let idCounter = 1000;
 
 export function addTask( task:IFormData ): AddTaskActionType {
     return { 
         type: ADD_TASK,
         payload: {
             ...task,
-            id: idCounter++,
+            id: (new Date().getTime()),
             date: format(new Date(), "PPp")
         } 
     }

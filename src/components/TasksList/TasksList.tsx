@@ -1,6 +1,6 @@
 import * as React from 'react';
-import IState from '../../redux/types/IState';
-import ITask from '../../redux/types/ITask';
+import IState from '../../types/IState';
+import ITask from '../../types/ITask';
 
 const TasksList = (tasksInState: IState) => {
     const todos = (tasksInState.tasks || []).map((task: ITask) => 

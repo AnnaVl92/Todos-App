@@ -1,5 +1,5 @@
-import { AddTaskActionType } from '../actions/actionTypes/actionTypes'
-import IState from '../types/IState'
+import { AddTaskActionType } from '../../types/IActionTypes'
+import IState from '../../types/IState'
 
 const initialState: IState = {
     tasks: []

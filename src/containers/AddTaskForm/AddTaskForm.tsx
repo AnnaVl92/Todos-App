@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/actions/actions"
 import { useForm } from 'react-hook-form';
-import IFormData from "../../redux/types/IFormData"
+import IFormData from "../../types/IFormData"
 
 function AddTaskForm () {
     const dispatch = useDispatch();

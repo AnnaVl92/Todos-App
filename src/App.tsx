@@ -2,7 +2,7 @@ import React from 'react';
 import AddTaskForm from './containers/AddTaskForm/AddTaskForm';
 import TasksList from './components/TasksList/TasksList';
 import { useSelector } from 'react-redux';
-import IState from './redux/types/IState'
+import IState from './types/IState'
 
 const App = () => {
     const tasksInState: IState = {
