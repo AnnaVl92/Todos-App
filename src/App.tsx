@@ -1,5 +1,5 @@
 import React from 'react';
-import AddTaskForm from './containers/AddTaskForm/AddTaskForm';
+import AddTaskForm from './components/AddTaskForm/AddTaskForm';
 import TasksList from './components/TasksList/TasksList';
 import { useSelector } from 'react-redux';
 import IState from './types/IState'
