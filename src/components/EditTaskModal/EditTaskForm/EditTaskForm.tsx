@@ -1,44 +1,51 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
+import { useSelector, useDispatch } from 'react-redux';
+import IState from '../../../types/IState'
+import ITask from "../../../types/ITask"
+import { editTask } from "../../../redux/actions/actions"
 
 const EditTaskForm = () => {
-    const { register, handleSubmit } = useForm<FormValues>();
-    const onSubmit: SubmitHandler<FormValues> = data => console.log(data);
-    
+    const dispatch = useDispatch();
+    const { register, handleSubmit } = useForm<ITask>();
+    const taskSelector = useSelector((state: IState ) => state.task);
+    const { task } = { task: taskSelector};
+    const onSubmit: SubmitHandler<ITask> = data => {
+        data.id = taskSelector?.id as ITask["id"];
+        data.creationDate = taskSelector?.creationDate as ITask["creationDate"]
+        dispatch(editTask(data));
+    }
+
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3">
                 <label
                     className="form-label fw-normal fs-6"
-                    htmlFor="editedTitle"
+                    htmlFor="title"
                 >
                     Edit task's title:
                 </label>
                 <input
-                    name="editedTitle"
+                    name="title"
                     className="form-control"
                     type="text"
                     ref={register}
+                    defaultValue={task?.title}
                 />
             </div>
             <div className="mb-3">
                 <label
                     className="form-label fw-normal fs-6"
-                    htmlFor="editedDescription"
+                    htmlFor="description"
                 >
                     Edit task's description:
                 </label>
                 <textarea
-                    name="editedDescription"
+                    name="description"
                     className="form-control"
                     ref={register}
                     rows={3}
+                    defaultValue={task?.description}
                 />
             </div>
             <button type="submit" className="btn btn-primary" value="Submit">Submit</button>

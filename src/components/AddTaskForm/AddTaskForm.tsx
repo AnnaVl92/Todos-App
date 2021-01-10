@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/actions/actions"
 import { useForm } from 'react-hook-form';
-import IFormData from "../../types/IFormData"
+import { INewTask } from '../../types/ITask';
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm<FormData>();
-    const onSubmit = (data: IFormData) => {
+    const { register, handleSubmit } = useForm<INewTask>();
+    const onSubmit = (data: INewTask) => {
         const newTask = {
             title: data.title,
             description: data.description
