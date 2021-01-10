@@ -14,7 +14,7 @@ type ActionType = AddTaskActionType | FetchTaskByIdActionType | EditTaskActionTy
 
 const rootReducer = (state = initialState, action: ActionType): IState => {
     switch (action.type) {
-        case 'ADD_TASK':
+        case 'ADD_TASK_ASYNC':
             if (state.tasks) {
                 return { tasks: [...state.tasks, action.payload ] }
             } else {

@@ -1,4 +1,4 @@
-import { ADD_TASK, FETCH_TASK_BY_ID, EDIT_TASK, DELETE_TASK } from './actionTypes'
+import { ADD_TASK, FETCH_TASK_BY_ID, EDIT_TASK, DELETE_TASK, ADD_TASK_ASYNC } from './actionTypes'
 import ITask, { INewTask } from "../../types/ITask"
 import { 
     AddTaskActionType,

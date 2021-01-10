@@ -1,8 +1,8 @@
 import ITask from "./ITask";
-import { ADD_TASK, FETCH_TASK_BY_ID, EDIT_TASK, DELETE_TASK } from "../redux/actions/actionTypes"
+import { ADD_TASK, ADD_TASK_ASYNC, FETCH_TASK_BY_ID, EDIT_TASK, DELETE_TASK } from "../redux/actions/actionTypes"
 
 export interface AddTaskActionType {
-    type: typeof ADD_TASK
+    type: typeof ADD_TASK | typeof ADD_TASK_ASYNC
     payload: ITask
 }
 
