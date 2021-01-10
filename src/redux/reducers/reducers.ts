@@ -1,11 +1,16 @@
-import { AddTaskActionType, FetchTaskByIdActionType, EditTaskActionType } from '../../types/IActionTypes'
+import { 
+    AddTaskActionType,
+    FetchTaskByIdActionType,
+    EditTaskActionType,
+    DeleteTaskActionType 
+} from '../../types/IActionTypes'
 import IState from '../../types/IState'
 
 const initialState: IState = {
     tasks: []
 }
 
-type ActionType = AddTaskActionType | FetchTaskByIdActionType | EditTaskActionType;
+type ActionType = AddTaskActionType | FetchTaskByIdActionType | EditTaskActionType | DeleteTaskActionType;
 
 const rootReducer = (state = initialState, action: ActionType): IState => {
     switch (action.type) {
@@ -31,6 +36,13 @@ const rootReducer = (state = initialState, action: ActionType): IState => {
                     return task;
                 })
                 return { task: {...action.payload}, tasks: [...tasks] }
+            } else {
+                return { ...state }
+            }
+        case 'DELETE_TASK':
+            if (state.tasks) {
+                const tasks = state.tasks.filter(task => task.id !== action.payload)
+                return { tasks: [...tasks] }
             } else {
                 return { ...state }
             }

@@ -3,7 +3,7 @@ import ITask from '../../../types/ITask';
 import * as Icon from 'react-feather';
 import EditTaskModal from "../../EditTaskModal/EditTaskModal"
 import { useDispatch } from "react-redux";
-import { fetchTaskById } from "../../../redux/actions/actions"
+import { fetchTaskById, deleteTask } from "../../../redux/actions/actions"
 
 const TasksListItem = (task:ITask) => {
     const dispatch = useDispatch();
@@ -15,16 +15,23 @@ const TasksListItem = (task:ITask) => {
                     <div className="btn-group d-flex align-items-center" role="group">
                         <button
                             type="button"
+                            title="Edit task"
                             aria-label="Edit"
                             className="btn btn-outline-secondary d-flex align-items-center"
                             data-bs-toggle="modal"
                             data-bs-target="#editTaskModal"
-                            onClick={() => {dispatch(fetchTaskById(task.id))}}
+                            onClick={() => { dispatch(fetchTaskById(task.id)) }}
                         >
                             <Icon.Edit2 size={20} />
                         </button>
                         <EditTaskModal />
-                        <button type="button" aria-label="Close" className="btn btn-outline-secondary d-flex align-items-center">
+                        <button
+                            type="button"
+                            title="Delete task"
+                            aria-label="Delete task"
+                            className="btn btn-outline-secondary d-flex align-items-center"
+                            onClick={() => { dispatch(deleteTask(task.id)) }}
+                        >
                             <Icon.X size={20} />
                         </button>
                     </div>

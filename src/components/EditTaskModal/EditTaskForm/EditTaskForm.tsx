@@ -48,7 +48,10 @@ const EditTaskForm = () => {
                     defaultValue={task?.description}
                 />
             </div>
-            <button type="submit" className="btn btn-primary" value="Submit">Submit</button>
+            <div className="modal-footer border-top-0 p-0">
+                <button type="submit" className="btn btn-primary" value="Submit">Submit</button>
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </form>
     );
 }
