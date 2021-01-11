@@ -10,7 +10,7 @@ const EditTaskForm = () => {
     const { register, handleSubmit } = useForm<ITask>();
     const taskSelector = useSelector((state: IState ) => state.task);
     const { task } = { task: taskSelector};
-    const onSubmit: SubmitHandler<ITask> = data => {
+    const onSubmit: SubmitHandler<ITask> = ( data )=> {
         data.id = taskSelector?.id as ITask["id"];
         data.creationDate = taskSelector?.creationDate as ITask["creationDate"]
         dispatch(editTask(data));

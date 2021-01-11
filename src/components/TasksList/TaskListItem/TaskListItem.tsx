@@ -7,6 +7,7 @@ import { fetchTaskById, deleteTask } from "../../../redux/actions/actions"
 
 const TasksListItem = (task:ITask) => {
     const dispatch = useDispatch();
+
     return (
         <div className="card">
             <div className="card-body">

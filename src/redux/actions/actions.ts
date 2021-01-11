@@ -1,21 +1,23 @@
-import { ADD_TASK, FETCH_TASK_BY_ID, EDIT_TASK, DELETE_TASK, ADD_TASK_ASYNC } from './actionTypes'
+import { ADD_TASK, FETCH_TASK_BY_ID, EDIT_TASK, DELETE_TASK, FETCH_ALL } from './actionTypes'
 import ITask, { INewTask } from "../../types/ITask"
-import { 
+import {
     AddTaskActionType,
     FetchTaskByIdActionType,
     EditTaskActionType,
-    DeleteTaskActionType
+    DeleteTaskActionType,
+    FetchAllActionType
 } from "../../types/IActionTypes"
-import { format } from 'date-fns'
+
+export function fetchAll(): FetchAllActionType {
+    return {
+        type: FETCH_ALL,
+    }
+}
 
 export function addTask(task: INewTask): AddTaskActionType {
     return {
         type: ADD_TASK,
-        payload: {
-            ...task,
-            id: (new Date().getTime()),
-            creationDate: format(new Date(), "PPp")
-        }
+        payload: task
     }
 }
 

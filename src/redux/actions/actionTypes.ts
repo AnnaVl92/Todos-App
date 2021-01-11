@@ -1,7 +1,11 @@
+// TODO: rename ASYNC to RESULT - it is response to action actually
 export const ADD_TASK = "ADD_TASK"
 export const ADD_TASK_ASYNC = "ADD_TASK_ASYNC"
 export const FETCH_TASK_BY_ID = "FETCH_TASK_BY_ID"
+export const FETCH_TASK_BY_ID_ASYNC = "FETCH_TASK_BY_ID_ASYNC"
 export const EDIT_TASK = "EDIT_TASK"
 export const EDIT_TASK_ASYNC = "EDIT_TASK_ASYNC"
 export const DELETE_TASK = "DELETE_TASK"
 export const DELETE_TASK_ASYNC = "DELETE_TASK_ASYNC"
+export const FETCH_ALL = "FETCH_ALL"
+export const FETCH_ALL_ASYNC = "FETCH_ALL_ASYNC"
