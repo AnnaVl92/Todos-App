@@ -1,6 +1,6 @@
 import ITask from './ITask'
 
 export default interface IState {
-    tasks?: ITask[],
-    task?: ITask
+	tasks?: ITask[]
+	task?: ITask
 }
